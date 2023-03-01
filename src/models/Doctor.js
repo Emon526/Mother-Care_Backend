@@ -6,7 +6,7 @@ id:{
     unique:true,
     required:true
 },
-doctorname:{
+doctorame:{
     type: String,
     required:true
 },
@@ -23,6 +23,22 @@ workplace:{
     required:true
 },
 biography:{
+    type: String,
+    required:true
+},
+patient:{
+    type: String,
+    required:true
+},
+experience:{
+    type: String,
+    required:true
+},
+review:{
+    type: String,
+    required:true
+},
+image:{
     type: String,
     required:true
 },

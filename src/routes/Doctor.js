@@ -27,6 +27,11 @@ router.post("/list",async function(req,res){
         biography:req.body.biography,
         appointmentNumber:req.body.appointmentNumber,
         location:req.body.location,
+        patient:req.body.patient,
+        experience:req.body.experience,
+        review:req.body.review,
+        image:req.body.image,
+
     });
 
     await newDoctor.save();

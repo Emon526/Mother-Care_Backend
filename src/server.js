@@ -19,7 +19,7 @@ mongoose.connect(mongoDbPath).then(function(){
     });
 
     const noteRouter = require('./routes/Doctor');
-    app.use("/doctors",noteRouter)
+    app.use("/doctors",noteRouter);
 
 
 });
