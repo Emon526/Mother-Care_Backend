@@ -6,7 +6,7 @@ id:{
     unique:true,
     required:true
 },
-doctorame:{
+doctorname:{
     type: String,
     required:true
 },
