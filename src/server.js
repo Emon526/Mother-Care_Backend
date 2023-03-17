@@ -23,22 +23,22 @@ mongoose.connect(mongoDbPath).then(function(){
     const noteRouter = require('./routes/Doctor');
     app.use("/doctors",noteRouter);
 
-    // app.use((req, res, next) => {
-    //     const error = new Error('Not found');
-    //     error.status = 404;
-    //     next(error);
-    //   });
+    app.use((req, res, next) => {
+        const error = new Error('Not found');
+        error.status = 404;
+        next(error);
+      });
 
-    //   app.use((error, req, res, next) => {
-    //     console.log(error.status)
-    //     res.status(error.status || 500);
-    //     res.json({
-    //       error: {
-    //         message: error.message,
-    //         code: error.status
-    //       }
-    //     });
-    //   });
+      app.use((error, req, res, next) => {
+        console.log(error.status)
+        res.status(error.status || 500);
+        res.json({
+          error: {
+            message: error.message,
+            code: error.status
+          }
+        });
+      });
 });
 
 
