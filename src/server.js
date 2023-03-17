@@ -14,9 +14,9 @@ mongoose.connect(mongoDbPath).then(function(){
 
     app.get("/",function(req,res){
         const response = {
-            code:res.statusCode,
-            message:"Api Worked!"};
-        res.status(200).json(response);
+            statusCode:res.statusCode,
+            message:"Api Working",};
+        res.json(response);
 
     });
 
@@ -24,7 +24,7 @@ mongoose.connect(mongoDbPath).then(function(){
     app.use("/doctors",noteRouter);
 
     app.use((req, res, next) => {
-        const error = new Error('Not found');
+        const error = new Error('Page Not found');
         error.status = 404;
         next(error);
       });
@@ -33,10 +33,8 @@ mongoose.connect(mongoDbPath).then(function(){
         console.log(error.status)
         res.status(error.status || 500);
         res.json({
-          error: {
-            message: error.message,
-            code: error.status
-          }
+            statusCode:error.status,
+            message:  error.message,
         });
       });
 });

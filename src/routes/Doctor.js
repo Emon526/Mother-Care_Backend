@@ -5,7 +5,9 @@ const Doctor = require('./../models/Doctor');
 
 router.post("/list",async function(req,res){
     var doctors =await Doctor.find();
-    res.json(doctors);
+    res.json({
+        statusCode:res.statusCode,
+        doctors});
     });
 
     router.post("/list/:location",async function(req,res){
