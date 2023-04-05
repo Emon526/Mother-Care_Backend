@@ -3,6 +3,7 @@ const app = express();
 
 const mongoose = require('mongoose');
 const Doctor = require('./models/Doctor');
+const Article =require('./models/Article');
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended:false}));
 //true -> Nested Objects Correct
@@ -23,6 +24,9 @@ mongoose.connect(mongoDbPath).then(function(){
     const doctorRouter = require('./routes/Doctor');
     app.use("/doctors",doctorRouter);
 
+    const breastCancerRouter = require('./routes/BreastCancer');
+    app.use("/breastcancer",breastCancerRouter);
+    
     app.use((req, res, next) => {
         const error = new Error('Page Not found');
         error.status = 404;
