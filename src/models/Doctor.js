@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const noteSchema = mongoose.Schema({
+const doctorSchema = mongoose.Schema({
 id:{
     type: String,
     unique:true,
@@ -51,4 +51,4 @@ location:{
     required:true
 },
 });
-module.exports =  mongoose.model("Doctor",noteSchema);
+module.exports =  mongoose.model("Doctor",doctorSchema);
