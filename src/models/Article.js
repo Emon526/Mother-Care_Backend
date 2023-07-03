@@ -11,10 +11,10 @@ articleTitle:{
     type: String,
     required:true
 },
-articleDescription:{
-    type: String,
-    required:true
-},
+  articleDescription:{
+    type: Object,
+    required:true,
+  },
 articleImage:{
     type: String,
     required:true

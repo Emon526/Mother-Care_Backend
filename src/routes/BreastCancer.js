@@ -5,6 +5,7 @@ const Article = require('../models/Article');
 
 router.get("/articles",async function(req,res){
     var articles =await Article.find();
+
     res.json({
         statusCode:res.statusCode,
         articles});
@@ -17,26 +18,29 @@ router.get("/articles",async function(req,res){
 
 
 
-        router.post("/articleadd",async function(req,res){
-        await Article.deleteOne({id:req.body.articleId});
+    //     router.post("/articleadd",async function(req,res){
+    //     await Article.deleteOne({id:req.body.articleId});
 
-    var newArticle= new Article({
-        articleId:req.body.articleId,
-        articleTitle :req.body.articleTitle,
-        articleDescription:req.body.articleDescription,
-        articleImage:req.body.articleImage,
-
-
-    });
-
-    await newArticle.save();
-
-    const response = {message:"New Article Added!" + `id: ${req.body.id}`};
-
-    res.json(response);
+    // var newArticle= new Article({
+    //     articleId:req.body.articleId,
+    //     articleTitle :req.body.articleTitle,
+    //     articleDescription:{
+    //         'en':req.body.articleDescription1,
+    //         'bn':req.body.articleDescription2,
+    //     },
+    //     articleImage:req.body.articleImage,
 
 
-    });
+    // });
+
+    // await newArticle.save();
+
+    // const response = {message:"New Article Added!" + `id: ${req.body.id}`};
+
+    // res.json(response);
+
+
+    // });
 
     // router.post("/delete",async function(req,res){
     //     await Doctor.deleteOne({id:req.body.id});
@@ -48,4 +52,4 @@ router.get("/articles",async function(req,res){
         
     //         });
 
-            module.exports = router;
+module.exports = router;
