@@ -1,20 +1,23 @@
 {
   "name": "mothercarebackend",
   "version": "2.0.0",
-  "description": "",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/server.js",
-    "dev": "nodemon src/server.js"
-  },
-  "author": "",
+  "description": "Api Backend for Mother Care Application",
+  "author": "Asraful Islam",
   "license": "ISC",
+  "main": "server.js",
+  "engines": {
+    "node":">=22.4.0 < 23.0.0"
+  },
   "dependencies": {
     "body-parser": "^1.20.2",
     "express": "^4.19.2",
     "mongoose": "^8.4.5",
     "nodemon": "^3.1.4",
     "punycode": "^2.3.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
   }
 }
