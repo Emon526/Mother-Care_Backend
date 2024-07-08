@@ -17,6 +17,7 @@ mongoose.connect(mongoDbPath).then(function(){
         const response = {
             statusCode:res.statusCode,
             message:"Api Working",};
+            console.log(res.statusCode,res.message),
         res.json(response);
 
     });
@@ -34,7 +35,7 @@ mongoose.connect(mongoDbPath).then(function(){
       });
 
       app.use((error, req, res, next) => {
-        console.log(error.status)
+        console.log(error.status,error.message)
         res.status(error.status || 500);
         res.json({
             statusCode:error.status,
@@ -47,6 +48,7 @@ mongoose.connect(mongoDbPath).then(function(){
 
 //Strating the server on a port 
 const PORT = process.env.PORT || 9000;
-app.listen(PORT,"0.0.0.0",function(){
-    console.log("Server Started at port: " + PORT);
+const HOST = "0.0.0.0";
+app.listen(PORT,HOST,function(){ 
+    console.log("Server Started at port: "+"http://" + HOST + ":" + PORT );
 });
