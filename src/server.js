@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({extended:false}));
 //true -> Nested Objects Correct
 //faslse -> Nested Objects Not Correct
 app.use(bodyParser.json());
-const mongoDbPath = "mongodb+srv://emon:Abc123456@mother-care-cluster.7sfpdxw.mongodb.net/mothercaredatabase";
+const mongoDbPath = "mongodb+srv://"+process.env.MONGOUSER+":"+process.env.MONGODBPASS+process.env.MONGOURL+"/"+ process.env.MONGODB;
 
 mongoose.connect(mongoDbPath).then(function(){
 
