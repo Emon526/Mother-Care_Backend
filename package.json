@@ -1,11 +1,13 @@
 {
   "name": "mothercarebackend",
-  "version": "2.0.0",
+  "version": "1.0.0",
   "description": "Api Backend for Mother Care Application",
   "author": "Asraful Islam",
   "license": "ISC",
   "main": "server.js",
-  "engines": { "node": "20.x" },
+  "engines": {
+    "node": "20.x"
+  },
   "dependencies": {
     "body-parser": "^1.20.2",
     "express": "^4.19.2",
