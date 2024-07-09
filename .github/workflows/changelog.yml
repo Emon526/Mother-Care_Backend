@@ -1,0 +1,30 @@
+name: Generate Changelog
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  generate-changelog:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Generate Changelog
+        id: changelog
+        uses: TriPSs/conventional-changelog-action@v5
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Release to Github
+        uses: softprops/action-gh-release@v1
+        if: ${{ steps.changelog.outputs.skipped == 'false' }}
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag_name: ${{ steps.changelog.outputs.tag }}
+          body: ${{ steps.changelog.outputs.clean_changelog }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
