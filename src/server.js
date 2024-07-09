@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+require('dotenv').config();
 
 const mongoose = require('mongoose');
 const Doctor = require('./models/Doctor');
@@ -48,7 +49,7 @@ mongoose.connect(mongoDbPath).then(function(){
 
 //Strating the server on a port 
 const PORT = process.env.PORT || 9000;
-const HOST = "0.0.0.0";
+const HOST = process.env.HOST || "127.0.0.1";
 app.listen(PORT,HOST,function(){ 
     console.log("Server Started at port: "+"http://" + HOST + ":" + PORT );
 });
